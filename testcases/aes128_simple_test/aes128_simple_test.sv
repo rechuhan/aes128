@@ -11,19 +11,15 @@ class aes128_simple_test_sequence extends aes128_base_test_sequence;
    endfunction
 
    virtual task body();
-   /*
       `uvm_do_on_with(aes128_tr, p_sequencer.aes128_sqr, 
       {
-         aes128_tr.encrypt_decrypty == 1;
+         aes128_tr.encrypt_decrypt == 0;
          aes128_tr.plaintext == 128'h00112233445566778899aabbccddeeff;
          aes128_tr.aes_key == 128'h000102030405060708090a0b0c0d0e0f;
       })
-   */
-   ///*
       repeat(10) begin
          `uvm_do_on(aes128_tr, p_sequencer.aes128_sqr);
       end
-   //*/
    endtask
 endclass
 
