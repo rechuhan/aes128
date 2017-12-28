@@ -33,7 +33,8 @@ class aes128_model extends uvm_component;
          aes128_tr_in.convert_128to32_all();
          //`uvm_info("aes128_model", "after convert_128to32_all:\n", UVM_LOW)
          //aes128_tr_in.print();
-         crypto_dpi_aes_ecb_crypto_func(aes128_tr_in.src, aes128_tr_out.dst, 128, aes128_tr_in.key, !aes128_tr_in.encrypt_decrypt);
+         //crypto_dpi_aes_ecb_crypto_func(aes128_tr_in.src, aes128_tr_out.dst, 128, aes128_tr_in.key, !aes128_tr_in.encrypt_decrypt);
+         crypto_dpi_ref_evp_cipher_func(aes128_tr_out.dst, aes128_tr_in.src, aes128_tr_in.key, !aes128_tr_in.encrypt_decrypt);
          //`uvm_info("aes128_model", "before convert_32to128_all:\n", UVM_LOW)
          //aes128_tr_out.print();
          aes128_tr_out.convert_32to128_all();
