@@ -26,7 +26,7 @@ class aes128_base_test extends uvm_test;
       aes128_cfg = aes128_config::type_id::create("aes128_cfg", this);
       if(!uvm_config_db#(virtual aes128_if)::get(this, "", "aes128_if", aes128_cfg.aes128_vif))
          `uvm_fatal("aes128_base_test", "aes128_if must be set!!!")
-      uvm_config_db#(aes128_config)::set(this, "aes128_tb.env.aes128_agt", "aes128_cfg", aes128_cfg);
+      uvm_config_db#(aes128_config)::set(this, "aes128_tb.env.*", "aes128_cfg", aes128_cfg);
    endfunction
 
    virtual function void connect_phase(uvm_phase phase);

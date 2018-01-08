@@ -19,7 +19,7 @@ class tb extends uvm_env;
 
    virtual function void connect_phase(uvm_phase phase);
       super.connect_phase(phase);
-      v_sqr.aes128_sqr = env.aes128_agt.aes128_sqr;
+      v_sqr.aes128_sqr = env.aes128_agt_i.aes128_sqr;
    endfunction
 
 endclass
