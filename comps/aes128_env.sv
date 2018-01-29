@@ -8,7 +8,6 @@ class aes128_env extends uvm_env;
    aes128_agent_o       aes128_agt_o;
    aes128_model         aes128_mdl;
    aes128_scoreboard    aes128_scb;
-   aes128_func_cov      aes128_f_cov;
 
    uvm_tlm_analysis_fifo #(aes128_transaction) mon_in_2_mdl_fifo;
    uvm_tlm_analysis_fifo #(aes128_transaction) mdl_2_scb_fifo;
@@ -24,7 +23,6 @@ class aes128_env extends uvm_env;
       aes128_agt_o = aes128_agent_o::type_id::create("aes128_agt_o", this);
       aes128_mdl = aes128_model::type_id::create("aes128_mdl", this);
       aes128_scb = aes128_scoreboard::type_id::create("aes128_scb", this);
-      aes128_f_cov = aes128_func_cov::type_id::create("aes128_f_cov", this);
 
       mon_in_2_mdl_fifo = new("mon_in_2_mdl_fifo", this);;
       mdl_2_scb_fifo = new("mdl_2_scb_fifo", this);
@@ -39,7 +37,6 @@ class aes128_env extends uvm_env;
       aes128_scb.mdl_2_scb_fifo_out.connect(mdl_2_scb_fifo.blocking_get_export);
       aes128_agt_o.aes128_mon_out.mon_out_2_scb_fifo_in.connect(mon_out_2_scb_fifo.analysis_export);
       aes128_scb.mon_out_2_scb_fifo_out.connect(mon_out_2_scb_fifo.blocking_get_export);
-      aes128_agt_i.aes128_mon_in.mon_in_2_mdl_fifo_in.connect(aes128_f_cov.analysis_export);
    endfunction
 
 endclass

@@ -24,6 +24,10 @@ class aes128_base_test extends uvm_test;
       super.build_phase(phase);
       aes128_tb = tb::type_id::create("aes128_tb", this);
       aes128_cfg = aes128_config::type_id::create("aes128_cfg", this);
+      aes128_cfg.has_coverage = 1;
+      aes128_cfg.is_active = UVM_ACTIVE;
+      `uvm_info("aes128_base_test", "cfg:", UVM_LOW)
+      aes128_cfg.print();
       if(!uvm_config_db#(virtual aes128_if)::get(this, "", "aes128_if", aes128_cfg.aes128_vif))
          `uvm_fatal("aes128_base_test", "aes128_if must be set!!!")
       uvm_config_db#(aes128_config)::set(this, "aes128_tb.env.*", "aes128_cfg", aes128_cfg);
