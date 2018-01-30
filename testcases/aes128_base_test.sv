@@ -1,11 +1,11 @@
 `ifndef __AES128_BASE_TEST_SV__
 `define __AES128_BASE_TEST_SV__
 
-class aes128_base_test_sequence extends uvm_sequence;
-   `uvm_object_utils(aes128_base_test_sequence)
+class aes128_base_test_seq extends uvm_sequence;
+   `uvm_object_utils(aes128_base_test_seq)
    `uvm_declare_p_sequencer(virtual_sequencer);
 
-   function new(string name = "aes128_base_test");
+   function new(string name = "aes128_base_test_seq");
       super.new(name);
    endfunction
 endclass
